@@ -81,10 +81,7 @@ export function useStyleStudio() {
 
       if (data.error) throw new Error(data.error.message);
 
-      const assistantText = data.content
-        .filter((b: { type: string }) => b.type === "text")
-        .map((b: { type: string; text?: string }) => b.text ?? "")
-        .join("");
+      const assistantText = data.content?.map((block) => block.text ?? "").join("") ?? "";
 
       const assistantMsg: Message = { id: crypto.randomUUID(), role: "assistant", content: assistantText };
       // Functional update — safe under React concurrent rendering
