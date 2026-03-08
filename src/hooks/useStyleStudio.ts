@@ -19,8 +19,8 @@ function classifyError(e: unknown, status?: number): string {
 }
 
 // Generates a simple unique ID without external deps
-function uid(): string {
-  return `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`;
+// crypto.randomUUID() — collision-resistant, native browser implementation
+
 }
 
 export function useStyleStudio() {
@@ -40,7 +40,7 @@ export function useStyleStudio() {
     setLoading(true);
     setError("");
 
-    const userMsg: Message = { id: uid(), role: "user", content: prompt };
+    const userMsg: Message = { id: crypto.randomUUID(), role: "user", content: prompt };
     const messages = [...history, userMsg];
     // Strip IDs before sending to API
     const apiMessages = messages.map(({ role, content }) => ({ role, content }));
@@ -69,7 +69,7 @@ export function useStyleStudio() {
         .map((b: { type: string; text?: string }) => b.text ?? "")
         .join("");
 
-      const assistantMsg: Message = { id: uid(), role: "assistant", content: assistantText };
+      const assistantMsg: Message = { id: crypto.randomUUID(), role: "assistant", content: assistantText };
       setHistory([...messages, assistantMsg]);
       setPrompt("");
     } catch (e: unknown) {
