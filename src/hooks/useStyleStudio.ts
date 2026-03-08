@@ -38,7 +38,11 @@ async function retryFetch(
   for (let i = 0; i < retries; i++) {
     const res = await fetch(url, options);
     if (res.status !== 429 && res.status !== 529) return res;
-    if (i < retries - 1) await new Promise((r) => setTimeout(r, delay));
+    if (i < retries - 1) {
+      // Jitter prevents thundering herd when multiple clients retry simultaneously
+      const jitter = Math.random() * 200;
+      await new Promise((r) => setTimeout(r, delay + jitter));
+    }
     delay *= 2;
   }
   throw new Error("Rate limit exceeded after 3 retries — please wait and try again.");
