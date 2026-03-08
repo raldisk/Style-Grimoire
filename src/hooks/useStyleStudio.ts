@@ -2,11 +2,15 @@ import { useState, useCallback, useRef } from "react";
 import { Message, StyleName, ClaudeResponse } from "../types";
 import { STYLE_PROMPTS } from "../data/prompts";
 
-const API_URL = "https://api.anthropic.com/v1/messages";
+// Production (self-hosted): routes through Express proxy at /api/generate — key stays server-side.
+// Sandbox (claude.ai artifact): auth injected by runtime — direct call used.
+// See docs/ADR-001.md for full architecture rationale.
+const API_URL = import.meta.env.PROD
+  ? "/api/generate"
+  : "https://api.anthropic.com/v1/messages";
 
 // Model: "claude-sonnet-4-6" = Claude Sonnet 4.6.
-// Verified in claude.ai artifact sandbox (auth injected by runtime).
-// For standalone deploy: proxy through backend, verify at docs.anthropic.com/en/docs/about-claude/models
+// Verify latest models at: https://docs.anthropic.com/en/docs/about-claude/models
 const MODEL = "claude-sonnet-4-6";
 
 // Max turns kept in context — prevents unbounded token growth in long sessions

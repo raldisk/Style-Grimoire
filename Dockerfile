@@ -1,33 +1,31 @@
-# ── Stage 1: Build ────────────────────────────────────────────
+# ── Stage 1: Build frontend ───────────────────────────────────
 FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Install frontend deps
 COPY package*.json ./
 RUN npm ci
 
+# Build Vite app → /app/dist
 COPY . .
 RUN npm run build
 
-# ── Stage 2: Serve ────────────────────────────────────────────
-FROM nginx:alpine AS runner
+# ── Stage 2: Production server ────────────────────────────────
+FROM node:20-alpine AS runner
 
-# Remove default nginx page
-RUN rm -rf /usr/share/nginx/html/*
+WORKDIR /app
 
-# Copy built assets
-COPY --from=builder /app/dist /usr/share/nginx/html
+# Install server deps only
+COPY server/package.json ./server/
+RUN cd server && npm install --production
 
-# SPA fallback — all routes serve index.html
-RUN printf 'server {\n\
-  listen 80;\n\
-  root /usr/share/nginx/html;\n\
-  index index.html;\n\
-  location / {\n\
-    try_files $uri $uri/ /index.html;\n\
-  }\n\
-}\n' > /etc/nginx/conf.d/default.conf
+# Copy server source + built frontend
+COPY server/index.js ./server/
+COPY --from=builder /app/dist ./dist
 
-EXPOSE 80
+EXPOSE 3000
 
-CMD ["nginx", "-g", "daemon off;"]
+ENV NODE_ENV=production
+
+CMD ["node", "server/index.js"]

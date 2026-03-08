@@ -64,37 +64,49 @@ style-grimoire/
 
 ## Quick Start
 
-### 1. Clone & Install
+### Option A — Local Development
 
 ```bash
 git clone https://github.com/raldisk/Style-Grimoire.git
 cd Style-Grimoire
 npm install
+cd server && npm install && cd ..
 ```
 
-### 2. Set Up Your API Key
-
-```bash
-cp .env.example .env.local
-```
-
-Open `.env.local` and add your Anthropic API key:
+Create a `.env` in the project root:
 
 ```
-VITE_ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
+ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE
 ```
 
 Get a key at [console.anthropic.com](https://console.anthropic.com).
 
-> ⚠️ **Security note:** `VITE_` prefixed variables are exposed to the browser bundle. For production deployments, proxy all API calls through a backend server and keep your key server-side only.
-
-### 3. Start the Dev Server
+Start both servers (two terminals):
 
 ```bash
+# Terminal 1 — Express proxy (port 3000)
+node server/index.js
+
+# Terminal 2 — Vite dev server (port 5173)
 npm run dev
 ```
 
-Opens at `http://localhost:5173`.
+Vite proxies `/api/generate` → Express → Anthropic. Your API key never touches the browser.
+
+---
+
+### Option B — Docker (Self-Hosted)
+
+```bash
+git clone https://github.com/raldisk/Style-Grimoire.git
+cd Style-Grimoire
+docker build -t style-grimoire .
+docker run -p 3000:3000 -e ANTHROPIC_API_KEY=sk-ant-YOUR_KEY_HERE style-grimoire
+```
+
+Opens at `http://localhost:3000`.
+
+> The API key is passed as an environment variable at runtime — it is never baked into the image.
 
 ---
 
