@@ -27,6 +27,23 @@ function classifyError(e: unknown, status?: number): string {
 
 }
 
+
+// ─── Retry with exponential backoff (429 / 529 only) ────────────────────────
+async function retryFetch(
+  url: string,
+  options: RequestInit,
+  retries = 3
+): Promise<Response> {
+  let delay = 1000;
+  for (let i = 0; i < retries; i++) {
+    const res = await fetch(url, options);
+    if (res.status !== 429 && res.status !== 529) return res;
+    if (i < retries - 1) await new Promise((r) => setTimeout(r, delay));
+    delay *= 2;
+  }
+  throw new Error("Rate limit exceeded after 3 retries — please wait and try again.");
+}
+
 export function useStyleStudio() {
   const [selectedStyle, setSelectedStyle] = useState<StyleName>("Coherence");
   const [prompt, setPrompt] = useState("");
@@ -54,7 +71,7 @@ export function useStyleStudio() {
     let status: number | undefined;
 
     try {
-      const res = await fetch(API_URL, {
+      const res = await retryFetch(API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         signal: abortRef.current.signal,
