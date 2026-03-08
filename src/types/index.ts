@@ -29,7 +29,7 @@ export interface StyleGroup {
 }
 
 export interface Message {
-  id: string;          // stable UUID — never use array index as key
+  id: string;
   role: "user" | "assistant";
   content: string;
 }
@@ -39,7 +39,11 @@ export interface AnthropicMessage {
   content: string;
 }
 
-export interface AnthropicResponse {
-  content: Array<{ type: string; text?: string }>;
+// Structured API response type — no implicit any
+export interface ClaudeResponse {
+  content: Array<{
+    type: "text" | string;
+    text?: string;
+  }>;
   error?: { message: string; status?: number };
 }
