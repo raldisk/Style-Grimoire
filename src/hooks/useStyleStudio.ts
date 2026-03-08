@@ -22,11 +22,7 @@ function classifyError(e: unknown, status?: number): string {
   return "Unexpected error. Please try again.";
 }
 
-// Generates a simple unique ID without external deps
-// crypto.randomUUID() — collision-resistant, native browser implementation
-
-}
-
+// ID generation: crypto.randomUUID() — collision-resistant, native browser implementation
 
 // ─── Retry with exponential backoff (429 / 529 only) ────────────────────────
 async function retryFetch(
