@@ -123,6 +123,7 @@ export function useStyleStudio() {
     history,
     generate,
     clear,
-    turnCount: Math.floor(history.length / 2),
+    // Count user messages only — immune to future system message additions
+    turnCount: history.filter((m) => m.role === "user").length,
   };
 }
