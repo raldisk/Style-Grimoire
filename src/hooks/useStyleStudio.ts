@@ -9,6 +9,9 @@ const API_URL = "https://api.anthropic.com/v1/messages";
 // For standalone deploy: proxy through backend, verify at docs.anthropic.com/en/docs/about-claude/models
 const MODEL = "claude-sonnet-4-6";
 
+// Max turns kept in context — prevents unbounded token growth in long sessions
+const MAX_HISTORY = 10;
+
 function classifyError(e: unknown, status?: number): string {
   if (status === 429) return "Rate limited — wait a moment before trying again.";
   if (status === 401) return "Authentication failed. Check your API key.";
@@ -42,7 +45,9 @@ export function useStyleStudio() {
     setError("");
 
     const userMsg: Message = { id: crypto.randomUUID(), role: "user", content: prompt };
-    const messages = [...history, userMsg];
+    // Trim to MAX_HISTORY turns before appending — prevents token overflow
+    const trimmed = history.slice(-MAX_HISTORY * 2);
+    const messages = [...trimmed, userMsg];
     // Strip IDs before sending to API
     const apiMessages = messages.map(({ role, content }) => ({ role, content }));
 
