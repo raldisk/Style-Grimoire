@@ -12,6 +12,7 @@ const MODEL = "claude-sonnet-4-6";
 function classifyError(e: unknown, status?: number): string {
   if (status === 429) return "Rate limited — wait a moment before trying again.";
   if (status === 401) return "Authentication failed. Check your API key.";
+  if (status === 403) return "API key not authorized.";
   if (status === 500 || status === 529) return "Anthropic API is temporarily unavailable. Try again shortly.";
   if (e instanceof TypeError && e.message.includes("fetch")) return "Network error — check your connection.";
   if (e instanceof Error) return e.message;
