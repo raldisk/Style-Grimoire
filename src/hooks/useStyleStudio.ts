@@ -82,7 +82,8 @@ export function useStyleStudio() {
         .join("");
 
       const assistantMsg: Message = { id: crypto.randomUUID(), role: "assistant", content: assistantText };
-      setHistory([...messages, assistantMsg]);
+      // Functional update — safe under React concurrent rendering
+      setHistory(prev => [...prev, userMsg, assistantMsg]);
       setPrompt("");
     } catch (e: unknown) {
       if (e instanceof Error && e.name === "AbortError") return;
