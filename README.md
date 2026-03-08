@@ -31,7 +31,7 @@ style-grimoire/
 ├── package.json
 ├── LICENSE
 ├── .gitignore
-├── .env.example                  # VITE_ANTHROPIC_API_KEY=sk-ant-...
+├── .env.example                  # ANTHROPIC_API_KEY=sk-ant-... (server-side)
 │
 ├── docs/
 │   └── preview.svg
