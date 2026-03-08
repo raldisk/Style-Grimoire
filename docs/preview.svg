@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feBlend in="SourceGraphic" mode="multiply" result="blend"/>
+      <feComposite in="blend" in2="SourceGraphic" operator="in"/>
+    </filter>
+    <clipPath id="main-clip">
+      <rect x="216" y="0" width="984" height="720"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="720" fill="#0c0b09"/>
+
+  <!-- ─── Sidebar ─── -->
+  <rect x="0" y="0" width="216" height="720" fill="#0f0e0c"/>
+  <rect x="215" y="0" width="1" height="720" fill="#1e1c18"/>
+
+  <!-- Sidebar header -->
+  <rect x="0" y="67" width="216" height="1" fill="#1e1c18"/>
+  <text x="18" y="34" font-family="Georgia, serif" font-size="16.5" font-weight="700" fill="#e8e0cf">Style Grimoire</text>
+  <text x="18" y="52" font-family="monospace" font-size="8" fill="#3a3428" letter-spacing="2">CLAUDE · STYLE SELECTOR</text>
+
+  <!-- EPISTEMIC -->
+  <text x="18" y="90" font-family="monospace" font-size="7.5" fill="#3a3428" letter-spacing="2.5">EPISTEMIC</text>
+  <!-- Coherence -->
+  <text x="30" y="113" font-family="monospace" font-size="11" fill="#c9933a" opacity="0.55">∞</text>
+  <text x="48" y="113" font-family="monospace" font-size="9.5" fill="#7a7060">Coherence</text>
+  <!-- Consciousness -->
+  <text x="30" y="135" font-family="monospace" font-size="11" fill="#e8c97a" opacity="0.45">◎</text>
+  <text x="48" y="135" font-family="monospace" font-size="9.5" fill="#686050">Consciousness</text>
+  <!-- Chain of Thought -->
+  <text x="30" y="157" font-family="monospace" font-size="11" fill="#a8d8c0" opacity="0.45">→</text>
+  <text x="48" y="157" font-family="monospace" font-size="9.5" fill="#686050">Chain of Thought</text>
+
+  <!-- SCHOLARLY -->
+  <text x="18" y="182" font-family="monospace" font-size="7.5" fill="#3a3428" letter-spacing="2.5">SCHOLARLY</text>
+  <text x="30" y="201" font-family="monospace" font-size="11" fill="#b8a98a" opacity="0.45">§</text>
+  <text x="48" y="201" font-family="monospace" font-size="9.5" fill="#686050">Standard</text>
+  <text x="30" y="221" font-family="monospace" font-size="11" fill="#a8c8a0" opacity="0.45">∂</text>
+  <text x="48" y="221" font-family="monospace" font-size="9.5" fill="#686050">Scholarly</text>
+  <text x="30" y="241" font-family="monospace" font-size="11" fill="#90b8d8" opacity="0.45">≡</text>
+  <text x="48" y="241" font-family="monospace" font-size="9.5" fill="#686050">Pretty Dense</text>
+  <text x="30" y="261" font-family="monospace" font-size="11" fill="#c8b880" opacity="0.45">⌬</text>
+  <text x="48" y="261" font-family="monospace" font-size="9.5" fill="#686050">Scientific Diagnostician</text>
+
+  <!-- VOICE -->
+  <text x="18" y="286" font-family="monospace" font-size="7.5" fill="#3a3428" letter-spacing="2.5">VOICE</text>
+  <text x="30" y="305" font-family="monospace" font-size="11" fill="#b8a0d8" opacity="0.45">∧</text>
+  <text x="48" y="305" font-family="monospace" font-size="9.5" fill="#686050">Spock</text>
+  <text x="30" y="325" font-family="monospace" font-size="11" fill="#d89080" opacity="0.45">!</text>
+  <text x="48" y="325" font-family="monospace" font-size="9.5" fill="#686050">Candor</text>
+  <text x="30" y="345" font-family="monospace" font-size="11" fill="#80b8c8" opacity="0.45">⌖</text>
+  <text x="48" y="345" font-family="monospace" font-size="9.5" fill="#686050">Deep Research</text>
+
+  <!-- CLINICAL -->
+  <text x="18" y="370" font-family="monospace" font-size="7.5" fill="#3a3428" letter-spacing="2.5">CLINICAL</text>
+  <text x="30" y="389" font-family="monospace" font-size="11" fill="#c87880" opacity="0.45">♥</text>
+  <text x="48" y="389" font-family="monospace" font-size="9.5" fill="#686050">Medical Intake</text>
+
+  <!-- NARRATIVE -->
+  <text x="18" y="414" font-family="monospace" font-size="7.5" fill="#3a3428" letter-spacing="2.5">NARRATIVE</text>
+  <text x="30" y="433" font-family="monospace" font-size="11" fill="#d8c8a0" opacity="0.45">✦</text>
+  <text x="48" y="433" font-family="monospace" font-size="9.5" fill="#686050">Memoire</text>
+  <text x="30" y="453" font-family="monospace" font-size="11" fill="#d8b090" opacity="0.45">I</text>
+  <text x="48" y="453" font-family="monospace" font-size="9.5" fill="#686050">Genre Fiction 1st</text>
+  <text x="30" y="473" font-family="monospace" font-size="11" fill="#c8a8d8" opacity="0.45">↺</text>
+  <text x="48" y="473" font-family="monospace" font-size="9.5" fill="#686050">Genre Fiction 3rd</text>
+  <text x="30" y="493" font-family="monospace" font-size="11" fill="#a0c8b0" opacity="0.45">▭</text>
+  <text x="48" y="493" font-family="monospace" font-size="9.5" fill="#686050">Slide Deck</text>
+
+  <!-- KNOWLEDGE (new group — green tint) -->
+  <text x="18" y="518" font-family="monospace" font-size="7.5" fill="#2a5a3a" letter-spacing="2.5">KNOWLEDGE</text>
+  <!-- Knowledge Buddy (active) -->
+  <rect x="0" y="524" width="216" height="30" fill="#0f1a14"/>
+  <rect x="0" y="524" width="2" height="30" fill="#7dd8a0"/>
+  <text x="30" y="544" font-family="monospace" font-size="11" fill="#7dd8a0">⚡</text>
+  <text x="48" y="544" font-family="monospace" font-size="9.5" fill="#7dd8a0">Knowledge Buddy</text>
+  <!-- NEW badge -->
+  <rect x="162" y="530" width="32" height="14" rx="2" fill="#0d1f16" stroke="#1a3a28" stroke-width="1"/>
+  <text x="178" y="541" font-family="monospace" font-size="7" fill="#3a6a50" text-anchor="middle" letter-spacing="0.5">NEW</text>
+
+  <!-- ─── Main Panel — Knowledge Buddy active ─── -->
+
+  <!-- Header -->
+  <rect x="216" y="0" width="984" height="68" fill="#0c0b09"/>
+  <rect x="216" y="67" width="984" height="1" fill="#1e1c18"/>
+  <text x="244" y="30" font-family="monospace" font-size="15" fill="#7dd8a0">⚡</text>
+  <text x="268" y="31" font-family="Georgia, serif" font-size="20" font-weight="600" fill="#e8e0cf">Knowledge Buddy</text>
+  <text x="244" y="54" font-family="Georgia, serif" font-size="11" font-style="italic" fill="#5a5240">Context-aware study partner: SAP (full suite), AWS/GCP/Azure, CS/LeetCode, CPA. Teaches, drills, recommends.</text>
+
+  <!-- Header buttons -->
+  <rect x="984" y="22" width="88" height="24" rx="2" fill="none" stroke="#2a2820" stroke-width="1"/>
+  <text x="1028" y="38" font-family="monospace" font-size="8.5" fill="#3a3428" text-anchor="middle" letter-spacing="1">SYSTEM PROMPT</text>
+  <rect x="1082" y="22" width="46" height="24" rx="2" fill="none" stroke="#2a2820" stroke-width="1"/>
+  <text x="1105" y="38" font-family="monospace" font-size="8.5" fill="#3a3428" text-anchor="middle" letter-spacing="1">CLEAR</text>
+  <rect x="942" y="24" width="34" height="20" rx="10" fill="#161412" stroke="#2a2820" stroke-width="1"/>
+  <text x="959" y="38" font-family="monospace" font-size="8" fill="#5a5240" text-anchor="middle">2 turns</text>
+
+  <!-- ─── Conversation ─── -->
+
+  <!-- Turn 1: user -->
+  <text x="244" y="100" font-family="monospace" font-size="8" fill="#3a3428" letter-spacing="1.5">● YOU</text>
+  <rect x="244" y="108" width="920" height="36" rx="3" fill="#0f0e0c" stroke="#1e1c18" stroke-width="1"/>
+  <text x="260" y="131" font-family="Georgia, serif" font-size="12" font-style="italic" fill="#7a7060">I have the AWS SAA-C03 exam in 3 weeks. Where do I start?</text>
+
+  <!-- Divider -->
+  <line x1="244" y1="158" x2="720" y2="158" stroke="#1e1c18" stroke-width="1"/>
+
+  <!-- Turn 1: assistant label -->
+  <text x="244" y="177" font-family="monospace" font-size="8" fill="#3a3428" letter-spacing="1.5">● KNOWLEDGE BUDDY</text>
+
+  <!-- Response -->
+  <text x="244" y="200" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">Three weeks is tight but workable for SAA-C03 if you're already comfortable with cloud</text>
+  <text x="244" y="218" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">fundamentals. The exam tests six domains — and two of them,</text>
+  <text x="244" y="218" font-family="Georgia, serif" font-size="12.5" font-weight="700" fill="#e8c97a"> Resilient Architectures</text>
+  <text x="244" y="236" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">and</text>
+  <text x="264" y="236" font-family="Georgia, serif" font-size="12.5" font-weight="700" fill="#e8c97a"> High-Performing Architectures</text>
+  <text x="476" y="236" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">, together make up ~52% of the score.</text>
+
+  <!-- Code span example -->
+  <text x="244" y="258" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">Master the core services first: </text>
+  <rect x="420" y="245" width="28" height="18" rx="2" fill="#1a1916"/>
+  <text x="426" y="258" font-family="monospace" font-size="10.5" fill="#a8d8c0">EC2</text>
+  <text x="452" y="258" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">, </text>
+  <rect x="460" y="245" width="22" height="18" rx="2" fill="#1a1916"/>
+  <text x="465" y="258" font-family="monospace" font-size="10.5" fill="#a8d8c0">S3</text>
+  <text x="486" y="258" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">, </text>
+  <rect x="494" y="245" width="32" height="18" rx="2" fill="#1a1916"/>
+  <text x="499" y="258" font-family="monospace" font-size="10.5" fill="#a8d8c0">VPC</text>
+  <text x="530" y="258" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">, and </text>
+  <rect x="567" y="245" width="32" height="18" rx="2" fill="#1a1916"/>
+  <text x="572" y="258" font-family="monospace" font-size="10.5" fill="#a8d8c0">IAM</text>
+  <text x="603" y="258" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5"> — everything else builds on top of these four.</text>
+
+  <!-- Blockquote -->
+  <rect x="244" y="274" width="3" height="56" fill="#7dd8a0" opacity="0.7"/>
+  <text x="260" y="292" font-family="Georgia, serif" font-size="11.5" font-style="italic" fill="#c9b89a">Best book: AWS Certified Solutions Architect Study Guide (Piper).</text>
+  <text x="260" y="310" font-family="Georgia, serif" font-size="11.5" font-style="italic" fill="#c9b89a">Best free resource: AWS Skill Builder — official practice exams</text>
+  <text x="260" y="328" font-family="Georgia, serif" font-size="11.5" font-style="italic" fill="#c9b89a">are the closest thing to the real test.</text>
+
+  <!-- Divider 2 -->
+  <line x1="244" y1="348" x2="720" y2="348" stroke="#1e1c18" stroke-width="1"/>
+
+  <!-- Turn 2: user -->
+  <text x="244" y="366" font-family="monospace" font-size="8" fill="#3a3428" letter-spacing="1.5">● YOU</text>
+  <rect x="244" y="374" width="920" height="36" rx="3" fill="#0f0e0c" stroke="#1e1c18" stroke-width="1"/>
+  <text x="260" y="397" font-family="Georgia, serif" font-size="12" font-style="italic" fill="#7a7060">Give me a 3-week study plan.</text>
+
+  <!-- Turn 2: assistant partial response -->
+  <text x="244" y="430" font-family="monospace" font-size="8" fill="#3a3428" letter-spacing="1.5">● KNOWLEDGE BUDDY</text>
+
+  <text x="244" y="452" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">Here's how to structure the three weeks. The first week is</text>
+  <text x="244" y="452" font-family="Georgia, serif" font-size="12.5" font-weight="700" fill="#e8c97a"> foundations only</text>
+  <text x="244" y="470" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">— resist the urge to do practice exams yet. Days 1–3: </text>
+  <rect x="641" y="457" width="28" height="18" rx="2" fill="#1a1916"/>
+  <text x="647" y="470" font-family="monospace" font-size="10.5" fill="#a8d8c0">EC2</text>
+  <text x="672" y="470" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">,</text>
+  <text x="244" y="488" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">storage (</text>
+  <rect x="313" y="475" width="22" height="18" rx="2" fill="#1a1916"/>
+  <text x="318" y="488" font-family="monospace" font-size="10.5" fill="#a8d8c0">S3</text>
+  <text x="339" y="488" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">, </text>
+  <rect x="347" y="475" width="36" height="18" rx="2" fill="#1a1916"/>
+  <text x="352" y="488" font-family="monospace" font-size="10.5" fill="#a8d8c0">EBS</text>
+  <text x="387" y="488" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">), and networking (</text>
+  <rect x="501" y="475" width="32" height="18" rx="2" fill="#1a1916"/>
+  <text x="506" y="488" font-family="monospace" font-size="10.5" fill="#a8d8c0">VPC</text>
+  <text x="537" y="488" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">, </text>
+  <rect x="545" y="475" width="56" height="18" rx="2" fill="#1a1916"/>
+  <text x="550" y="488" font-family="monospace" font-size="10.5" fill="#a8d8c0">subnets</text>
+  <text x="605" y="488" font-family="Georgia, serif" font-size="12.5" fill="#ddd5c5">). Days 4–7:</text>
+
+  <!-- Thinking indicator -->
+  <text x="244" y="526" font-family="monospace" font-size="8" fill="#3a3428" letter-spacing="1.5">● KNOWLEDGE BUDDY</text>
+  <circle cx="258" cy="548" r="3.5" fill="#7dd8a0" opacity="0.9"/>
+  <circle cx="272" cy="548" r="3.5" fill="#7dd8a0" opacity="0.5"/>
+  <circle cx="286" cy="548" r="3.5" fill="#7dd8a0" opacity="0.2"/>
+  <text x="300" y="552" font-family="monospace" font-size="9" fill="#3a3428" letter-spacing="1">invoking Knowledge Buddy…</text>
+
+  <!-- ─── Input area ─── -->
+  <rect x="216" y="626" width="984" height="1" fill="#1e1c18"/>
+  <rect x="216" y="627" width="984" height="93" fill="#0c0b09"/>
+  <rect x="244" y="642" width="858" height="52" rx="3" fill="#0f0e0c" stroke="#2a2820" stroke-width="1"/>
+  <text x="260" y="673" font-family="Georgia, serif" font-size="12" font-style="italic" fill="#2a2820">Ask about SAP, AWS/GCP/Azure, LeetCode, CPA…</text>
+  <rect x="1112" y="642" width="82" height="52" rx="2" fill="#7dd8a0"/>
+  <text x="1153" y="673" font-family="monospace" font-size="10" fill="#0c0b09" text-anchor="middle" letter-spacing="1" font-weight="500">INVOKE →</text>
+  <text x="244" y="709" font-family="monospace" font-size="7.5" fill="#252320" letter-spacing="0.8">⌘↵ to submit · context preserved · switching style resets conversation</text>
+
+</svg>
