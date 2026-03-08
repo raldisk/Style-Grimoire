@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from "react";
-import { Message, StyleName } from "../types";
+import { Message, StyleName, ClaudeResponse } from "../types";
 import { STYLE_PROMPTS } from "../data/prompts";
 
 const API_URL = "https://api.anthropic.com/v1/messages";
@@ -62,7 +62,18 @@ export function useStyleStudio() {
       });
 
       status = res.status;
-      const data = await res.json();
+
+      // Guard: check HTTP status before parsing body
+      if (!res.ok) throw new Error(`API error ${res.status}`);
+
+      // Guard: safe JSON parse — API may return non-JSON on edge failures
+      let data: ClaudeResponse;
+      try {
+        data = await res.json();
+      } catch {
+        throw new Error("Invalid response from API");
+      }
+
       if (data.error) throw new Error(data.error.message);
 
       const assistantText = data.content
